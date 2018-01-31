@@ -1,6 +1,6 @@
 {
   "name": "flyer-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "商业端项目脚手架-飞鸟",
   "main": "bin/flyer",
   "bin": {
@@ -13,6 +13,13 @@
     "flyer-cli"
   ],
   "author": "jianmin3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Handy2015/flyer-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Handy2015/flyer-cli/issues"
+  },
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.3",
