@@ -1,0 +1,23 @@
+{
+  "name": "flyer-cli",
+  "version": "1.0.0",
+  "description": "商业端项目脚手架-飞鸟",
+  "main": "bin/flyer",
+  "bin": {
+    "flyer": "bin/flyer"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flyer-cli"
+  ],
+  "author": "jianmin3",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0"
+  }
+}

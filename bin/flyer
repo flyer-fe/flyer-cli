@@ -1,0 +1,109 @@
+#!/usr/bin/env node --harmony
+'use strict'
+
+/**
+ * 脚手架入口文件
+ * @author jianmin3
+ * 脚手架包含了⑦种命令，分别是:
+ * add: 添加模板，没有任何特性的模板
+ * dellete: 删除模板
+ * init: 初始化项目
+ * list: 初始化一个列表模板
+ * form: 初始化一个表单模板
+ * report: 初始化一个报表模板
+ * module: 初始化一个模块，包含 < 列表页(list.vue) | 表单页(form.vue) | 模块配置文件(config.js) >
+ * ----------------------------------------------------------------------------------
+ * 说明：
+ *     以上模板均可接受用户输入，提供了指令解析功能，目前只支持文件路径，用户可指明模板生成的路径，
+ *     如果没有参数，默认在当前目录下。
+ * 
+ * 参数解析规则：
+ *     1、首先输入命令：flyer
+ *     2、然后是对应的指令：list ...
+ *     3、指令匹配的参数：路径，准确的说应该是模块名称...
+ *     4、指令匹配的参数（暂不支持）：条件 ... 
+ *     如：flyer list idea ss|ss|ss|sss
+ * ----------------------------------------------------------------------------------
+ */
+
+// 定义脚手架的文件路径
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+
+const program = require('commander')
+
+// 定义当前版本
+program 
+    .version(require('../package').version)
+ 
+// 定义使用方法
+program
+    .usage('<command>')
+
+// 添加模板
+program
+    .command('add')
+    .description('Add a new template')
+    .alias('a')
+    .action(() => {
+        require('../src/command/add')()
+    })
+
+// 初始化模板
+program
+    .command('init')
+    .description('Generate a new project')
+    .alias('i')
+    .action(() => {
+        require('../src/command/init')()
+    })
+
+// 删除模板
+program
+    .command('delete')
+    .description('delete a templates')
+    .alias('l')
+    .action(() => {
+        require('../src/command/delete')()
+    })
+
+// 创建一个模块
+program
+    .command('module')
+    .description('create a module')
+    .alias('m')
+    .action(() => {
+        require('../src/command/module')()
+    })
+
+// 列表模板
+program
+    .command('list')
+    .description('List all the templates')
+    .alias('d')
+    .action(() => {
+        require('../src/command/command')()
+    })
+
+// 列表模板
+program
+    .command('from')
+    .description('from all the templates')
+    .alias('f')
+    .action(() => {
+        require('../src/command/command')()
+    })
+
+// 列表模板
+program
+    .command('report')
+    .description('report all the templates')
+    .alias('r')
+    .action(() => {
+        require('../src/command/command')()
+    })
+
+// 处理参数和提供帮助信息
+program.parse(process.argv)
+if(!program.args.length){
+  program.help()
+}
