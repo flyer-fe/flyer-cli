@@ -39,7 +39,7 @@ module.exports = () => {
         // 要找一下这个路径是否有效，如果无效，需要创建一个文件夹
         if (!fs.existsSync(targetPath)) {
           fs.mkdirSync(targetPath)
-          console.log(chalk.red('文件夹不存在，我给你创建了一个!'))
+          console.log(chalk.red('模块文件夹不存在，我给你创建了一个!'))
         }
         targetPath = targetPath + '/' + (_customCommand === 'form' ? 'create' : _customCommand) + '.vue'
       } else {
