@@ -86,8 +86,8 @@ program
 
 // 列表模板
 program
-    .command('from')
-    .description('from all the templates')
+    .command('form')
+    .description('form all the templates')
     .alias('f')
     .action(() => {
         require('../src/command/command')()

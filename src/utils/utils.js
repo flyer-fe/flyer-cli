@@ -37,7 +37,7 @@ function copy (targetPath, copyPath) {
     // console.log("开始读取文件流！");
   })
   _fileReadStream.on('end', function () {
-    console.log(chalk.green('文件流读取完毕！'))
+    // console.log(chalk.green('文件流读取完毕！'))
     _fileWriteStream.end();
   })
   _fileReadStream.on('close', function () {
@@ -87,6 +87,7 @@ function travelSync(dir, callback, copyMap) {
         callback(pathname, file, 'file')
       }
     }
+    // console.log(chalk.green('文件拷贝完毕！'))
   })
 }
 // 示例：外部调用travelSync 来遍历文件夹时，需要这么写，用来确保文件路径有效
