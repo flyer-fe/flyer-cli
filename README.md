@@ -26,7 +26,7 @@
 [npm]: https://img.shields.io/npm/v/flyer-cli.svg
 [npm-url]: https://www.npmjs.com/package/flyer-cli
 
-[node]: https://img.shields.io/npm/v/flyer-cli.svg
+[node]: https://img.shields.io/node/v/flyer-cli.svg
 [node-url]: https://nodejs.org
 
 [deps]: https://david-dm.org/flyer-cli.svg
