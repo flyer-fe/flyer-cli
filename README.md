@@ -25,32 +25,29 @@
 
 # 示例及详细说明
 
-##### add 添加一个模板，没有任何特性的模板
----
+
+
+add 添加一个模板，没有任何特性的模板
 ```
 flyer add <path>
 ```
 
-##### list 初始化一个列表模板
----
+list 初始化一个列表模板
 ```
 flyer list <path>
 ```
 
-##### form 初始化一个表单模板
----
+form 初始化一个表单模板
 ```
 flyer form <path>
 ```
 
-##### report 初始化一个报表模板
----
+report 初始化一个报表模板
 ```
 flyer report <path>
 ```
 
 module 初始化一个报表模板
----
 ```
 flyer module <floder-name>
 ```
