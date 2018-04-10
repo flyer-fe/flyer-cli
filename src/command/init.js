@@ -19,7 +19,7 @@ const childProcess = require('child_process')
 const download = require('download-git-repo')
 // 组件库地址
 const template = 'ElemeFE/element'
-const command = 'npm install element-ui --save'
+const ui_command = 'npm install element-ui --save'
 
 module.exports = () => {
   // 项目的根路径
@@ -42,7 +42,7 @@ module.exports = () => {
     let dataString = data.toString()
     if (dataString.indexOf('Documentation') > 0) {
       // downloadAndGenerate(template, _customProject)
-      installTemplate(command, _customProject)
+      installTemplate(ui_command, _customProject)
     }
   })
   _vue.stdout.on('end', () => {
@@ -105,7 +105,7 @@ module.exports = () => {
   }
 
   /**
-   * 使用npm安装依赖库
+   * 使用npm安装公共平台依赖库
    * @param {string} dir 文件夹名称
    * 
    */
@@ -125,6 +125,7 @@ module.exports = () => {
 
   /**
    * 更新webpack build文件夹配置项
+   * 
    */
   function updateWebpackBuild () {
     
@@ -132,6 +133,7 @@ module.exports = () => {
 
   /**
    * 更新webpack config文件夹配置项
+   * 
    */
   function updateWebpackConfig () {
 
@@ -139,8 +141,33 @@ module.exports = () => {
 
   /**
    * 更新项目入口文件
+   * 
    */
-  function updateProject_enterFile () {
+  function updateProjectMainfile () {
+
+  }
+
+  /**
+   * 更新项目视图入口文件
+   * 
+   */
+  function updateProjectAppfile () {
+
+  }
+
+  /**
+   * 将依赖库名写入package.json文件
+   * 
+   */
+  function updatePackagefile () {
+
+  }
+
+  /**
+   * 子进程执行 npm install 可有可无
+   * 
+   */
+  function npmInstall () {
 
   }
 }
