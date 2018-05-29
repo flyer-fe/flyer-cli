@@ -18,15 +18,18 @@ const childProcess = require('child_process')
 // 从git拉去依赖库
 const download = require('download-git-repo')
 // 组件库地址
-const template = 'ElemeFE/element'
-const ui_command = 'npm install element-ui --save'
+// const template = 'ElemeFE/element'
+// const ui_command = 'npm install element-ui --save'
+const quickStart = 'vue init flyer-fe/flyer-quickstart my-project'
 
 module.exports = () => {
   // 项目的根路径
   let projectPath = process.cwd()
   let _arguments = process.argv.splice(2)
   let _customProject = _arguments[1] || 'template-project'
-  let _vueCommand = ['init', 'webpack', _customProject]
+  // let _vueCommand = ['init', 'webpack', _customProject]
+  // 命令参数
+  let _quickStart = ['init', 'flyer-fe/flyer-quickstart', _customProject]
   let _vueOptions = {
     stdio: ['pipe', 'pipe', 'pipe']
   }
@@ -42,7 +45,7 @@ module.exports = () => {
     let dataString = data.toString()
     if (dataString.indexOf('Documentation') > 0) {
       // downloadAndGenerate(template, _customProject)
-      installTemplate(ui_command, _customProject)
+      // installTemplate(ui_command, _customProject)
     }
   })
   _vue.stdout.on('end', () => {
@@ -121,46 +124,6 @@ module.exports = () => {
       _vue.kill()
       process.exit()
     })
-  }
-
-  /**
-   * 更新webpack build文件夹配置项
-   * 
-   */
-  function updateWebpackBuild () {
-    
-  }
-
-  /**
-   * 更新webpack config文件夹配置项
-   * 
-   */
-  function updateWebpackConfig () {
-
-  }
-
-  /**
-   * 更新项目入口文件
-   * 
-   */
-  function updateProjectMainfile () {
-
-  }
-
-  /**
-   * 更新项目视图入口文件
-   * 
-   */
-  function updateProjectAppfile () {
-
-  }
-
-  /**
-   * 将依赖库名写入package.json文件
-   * 
-   */
-  function updatePackagefile () {
-
   }
 
   /**

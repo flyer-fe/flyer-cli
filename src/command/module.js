@@ -41,5 +41,8 @@ module.exports = () => {
         utils.copy(targetDir + '/' + file, pathname)
       }
     }, ['list.vue', 'form.vue', 'config.js'])
+
+    // 模块创建完成后，自动生成模块的mock数据
+    
   })
 }
