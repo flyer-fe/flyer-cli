@@ -1,5 +1,5 @@
 <template>
-  <div class="template-container">
+  <div class="pages-container">
     <!-- 这里写页面展示的内容 -->
   </div>
 </template>
@@ -9,6 +9,7 @@
     props: {
 
     },
+    
     computed: {
 
     },
@@ -36,7 +37,5 @@
 </script>
 
 <style scoped>
-  .template-container {
 
-  }
 </style>

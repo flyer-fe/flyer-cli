@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<<script>
+<script>
   // baseComponents
   import XButton from 'components/button'
   import XButtonGroup from 'components/button-group'
