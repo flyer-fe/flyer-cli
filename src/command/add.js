@@ -23,28 +23,24 @@ module.exports = () => {
     let _customCommand = _arguments[0]
     // 用户输入路劲
     let _customPath = _arguments[1]
-    // 用户定制模板参数 1111111
+    // 用户定制模板参数
     let _customOptions = _arguments[2]
     // 需要拷贝的文件路劲
     let copyPath = path.resolve(__dirname, '..') + config.path[_customCommand]
-
+    // console.log(_customOptions)
     // 校验创建模板时用户是否输入路径
     if (_customPath) {
-      // 验证用户输入文件夹是否有效
-      if (config.rex.PATH_REG.test(_customPath)) {
-        // 要找一下这个路径是否有效，如果无效，需要创建一个文件夹
-        if (!fs.existsSync(targetPath)) {
-          fs.mkdirSync(targetPath)
-          console.log(chalk.red('文件夹不存在，我给你创建了一个!'))
-        }
-        // 这一步不能拼接文件名称，因为需要验证文件在是否有效
-        targetPath = targetPath + '/src/pages' + utils.splitPath(_customPath)
-      } else {
-        console.log(chalk.red('参数不符合解析规范，开头必须为contract|advertGroup|advert|idea/xxxx'))
-        return
+      // 这一步不能拼接文件名称，因为需要验证文件夹是否有效
+      targetPath = targetPath + (_customOptions ? '/src/pages' + utils.splitPath(_customPath) : '') 
+      // 要找一下这个路径是否有效，如果无效，需要创建一个文件夹
+      if (!fs.existsSync(targetPath)) {
+        fs.mkdirSync(targetPath)
+        console.log(chalk.red('文件夹不存在，我给你创建了一个!'))
       }
     }
-    targetPath = targetPath + '/templates.vue'
+    // 如果用户未输入第二个参数，那么将第一个参数作为文件名称，如果用户俩个参数都不输入，则使用默认文件名称
+    _customOptions = _customOptions ? _customOptions : _customPath
+    targetPath = targetPath + '/' + (_customOptions || 'templates') + '.vue'
     // console.log(targetPath)
     utils.copy(targetPath, copyPath)
   })

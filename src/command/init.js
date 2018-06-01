@@ -18,8 +18,8 @@ const childProcess = require('child_process')
 // 从git拉去依赖库
 const download = require('download-git-repo')
 // 组件库地址
-// const template = 'ElemeFE/element'
-// const ui_command = 'npm install element-ui --save'
+const ui_command = 'npm install element-ui --save'
+// 快速入门命令
 const quickStart = 'vue init flyer-fe/flyer-quickstart my-project'
 
 module.exports = () => {
@@ -35,7 +35,7 @@ module.exports = () => {
   }
   
   // 子进程实例
-  let _vue = childProcess.spawn('vue', _vueCommand, _vueOptions)
+  let _vue = childProcess.spawn('vue', _quickStart, _vueOptions)
   // 将子进程的输出(stdout)输出到父进程的stdout中，但是一些进度就无法获取了
   _vue.stdout.pipe(process.stdout)
 
@@ -45,6 +45,7 @@ module.exports = () => {
     let dataString = data.toString()
     if (dataString.indexOf('Documentation') > 0) {
       // downloadAndGenerate(template, _customProject)
+      // 可以在脚手架中预装UI组件库
       // installTemplate(ui_command, _customProject)
     }
   })
@@ -124,13 +125,5 @@ module.exports = () => {
       _vue.kill()
       process.exit()
     })
-  }
-
-  /**
-   * 子进程执行 npm install 可有可无
-   * 
-   */
-  function npmInstall () {
-
   }
 }
