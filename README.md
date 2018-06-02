@@ -78,7 +78,7 @@ flyer report
 
 
 
-module（初始化一个报表模板）
+module（初始化一个模块）
 ```
 flyer module <module_name>
 ```
@@ -98,7 +98,7 @@ flyer init <project_name>
 >
 > * 看到这里，才到了脚手架的核心部分，使用```flyer init <project_name>```初始化你的spa项目；
 > * 你也可以直接使用```flyer-fe/flyer-quickstart```快速入门来初始化你的spa项目，具体使用[请看这里](https://github.com/flyer-fe/flyer-quickstart);
-> * flyer-quickstart快速入门中预装了element-ui框架，你可以更快速的构建你的spa应用，如果你不喜欢，也可以将其干点，但是你枉费了的一片苦心；
+> * flyer-quickstart快速入门中预装了element-ui框架，你可以更快速的构建你的spa应用，如果你不喜欢，也可以将其干点，但是你枉费了我的一片苦心；
 >
 
 
