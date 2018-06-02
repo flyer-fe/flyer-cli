@@ -36,9 +36,9 @@ flyer add
 
 >
 > * 没有任何特性的模板，你所知道的一个普普通通的vue模板，还有一些我们经常用的钩子函数一并帮你生成，你所要做的就是实现你的业务逻辑
-> * flyer add <module> 命令，将默认添加到src/pages路径下的模块中，文件名称使用默认的<templet.vue>
-> * flyer add <module> <file_name> 命令，同样，也是将默认添加到src/pages路径下的模块中，不过你可以自定义文件名称
-> * flyer add 命令，在当前目录下生成<templet.vue>文件
+> * ```flyer add <module>``` 命令，将默认添加到src/pages路径下的模块中，文件名称使用默认的templet.vue
+> * ```flyer add <module> <file_name>``` 命令，同样，也是将默认添加到src/pages路径下的模块中，不过你可以自定义文件名称
+> * flyer add 命令，在当前目录下生成templet.vue文件
 >
 
 list（初始化一个列表模板）
@@ -50,9 +50,9 @@ flyer list
 
 >
 > * 创建一个列表页，包含了查询、列表项、分页三个部分；
-> * flyer list <module>命令，将默认添加到src/pages路径下的模块中，文件名称使用默认的<list.vue>，如果模块不存在，则会自动生成一个文件夹，作为模块文件夹;
-> * flyer list <module> <file_name> 命令，同样，也是将默认添加到src/pages路径下的模块中，不过你可以自定义文件名称
-> * flyer list 命令，在当前目录下生成<list.vue>文件
+> * ```flyer list <module>```命令，将默认添加到src/pages路径下的模块中，文件名称使用默认的list.vue，如果模块不存在，则会自动生成一个文件夹，作为模块文件夹;
+> * ```flyer list <module> <file_name>```命令，同样，也是将默认添加到src/pages路径下的模块中，不过你可以自定义文件名称
+> * flyer list 命令，在当前目录下生成list.vue文件
 
 form（初始化一个表单模板）
 ```
@@ -63,7 +63,7 @@ flyer form
 
 >
 > * 创建一个表单页，包含了表单、提交俩个部分；
-> * 使用方式同list指令，不同的是，如果你不指定文件名称，则默认文件名称为<create.vue>
+> * 使用方式同list指令，不同的是，如果你不指定文件名称，则默认文件名称为create.vue
 >
 
 report（初始化一个报表模板）
@@ -81,13 +81,12 @@ flyer report
 module（初始化一个报表模板）
 ```
 flyer module <module_name>
-
 ```
 
 >
-> * 初始化一个模块，module-name为模块名称，你也可以理解为文件夹名称；
-> * 模块内容包含 < 列表页(list.vue) | 表单页(form.vue) | 模块配置文件(config.js) > 三个部分
-> * module-name 默认写入位置‘src/pages/module_name’，如果项目结构不是'src/pages/...'，请输入具体的模块路劲，确保程序成功写入文件；
+> * 初始化一个模块，module_name为模块名称，你也可以理解为文件夹名称；
+> * 模块内容包含 ```列表页(list.vue) | 表单页(form.vue) | 模块配置文件(config.js)```三个部分
+> * module_name默认写入位置```src/pages/module_name```，如果项目结构不是```src/pages/...```，请输入具体的模块路劲，确保程序成功写入文件；
 > * 在我看来第一种方式就可以满足你的需求，因为模块结构及模块文件结构仅在业务模块中使用；
 >
 
@@ -98,8 +97,8 @@ flyer init <project_name>
 
 >
 > * 看到这里，才到了脚手架的核心部分，使用```flyer init <project_name>```初始化你的spa项目；
-> * 你也可以直接使用```vue init flyer-fe/flyer-quickstart my-project```来初始化你的spa项目
-> 
+> * 你也可以直接使用```flyer-fe/flyer-quickstart```快速入门来初始化你的spa项目，具体使用[请看这里](https://github.com/flyer-fe/flyer-quickstart);
+> * flyer-quickstart快速入门中预装了element-ui框架，你可以更快速的构建你的spa应用，如果你不喜欢，也可以将其干点，但是你枉费了的一片苦心；
 >
 
 
