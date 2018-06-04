@@ -1,6 +1,6 @@
 {
   "name": "flyer-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "商业端项目脚手架-飞鸟",
   "main": "bin/flyer",
   "bin": {

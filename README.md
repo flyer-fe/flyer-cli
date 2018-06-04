@@ -52,7 +52,7 @@ flyer list
 > * 创建一个列表页，包含了查询、列表项、分页三个部分；
 > * ```flyer list <module>```命令，将默认添加到src/pages路径下的模块中，文件名称使用默认的list.vue，如果模块不存在，则会自动生成一个文件夹，作为模块文件夹;
 > * ```flyer list <module> <file_name>```命令，同样，也是将默认添加到src/pages路径下的模块中，不过你可以自定义文件名称
-> * flyer list 命令，在当前目录下生成list.vue文件
+> * ```flyer list``` 命令，在当前目录下生成list.vue文件
 
 form（初始化一个表单模板）
 ```
@@ -97,8 +97,8 @@ flyer init <project_name>
 
 >
 > * 看到这里，才到了脚手架的核心部分，使用```flyer init <project_name>```初始化你的spa项目；
-> * 你也可以直接使用```flyer-fe/flyer-quickstart```快速入门来初始化你的spa项目，具体使用[请看这里](https://github.com/flyer-fe/flyer-quickstart);
-> * flyer-quickstart快速入门中预装了element-ui框架，你可以更快速的构建你的spa应用，如果你不喜欢，也可以将其干点，但是你枉费了我的一片苦心；
+> * 你也可以直接使用```flyer-fe/flyer-quickstart```vue-cli模板来初始化你的spa项目，具体使用[请看这里](https://github.com/flyer-fe/flyer-quickstart);
+> * flyer-quickstart会根据你的喜好来预装```element-ui or quasar```UI框架，这样一来你可以更快速的构建你的spa应用，如果你不喜欢，也可以将其干点，但是你枉费了我的一片苦心；
 >
 
 
