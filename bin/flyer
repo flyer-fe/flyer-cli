@@ -84,7 +84,7 @@ program
         require('../src/command/command')()
     })
 
-// 列表模板
+// 表单模板
 program
     .command('form')
     .description('form all the templates')
@@ -93,7 +93,7 @@ program
         require('../src/command/command')()
     })
 
-// 列表模板
+// 报表模板
 program
     .command('report')
     .description('report all the templates')

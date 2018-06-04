@@ -73,8 +73,11 @@ function readFile(filename, options, callback) {
  * @param {*} dir           文件夹路劲
  * @param {*} callback      回调函数
  * @param {*} copyMap       部分要拷贝文件名称
+ * @param {*} writeMap      要写入的文件名称集合
+ * 
+ * writeMap中存的虚拟文件名，也就是将拷贝文件名称写成writeMap中的名称，可以是一对多
  */
-function travelSync(dir, callback, copyMap) {
+function travelSync(dir, callback, copyMap, writeMap) {
   fs.readdirSync(dir).forEach(function (file) {
     var pathname = path.join(dir, file)
     if (fs.statSync(pathname).isDirectory()) {
@@ -82,7 +85,14 @@ function travelSync(dir, callback, copyMap) {
       travelSync(pathname, callback, copyMap)
     } else {
       if (copyMap) {
-        (copyMap.indexOf(file) >= 0) && callback(pathname, file)
+        // console.log(writeMap)
+        if (writeMap) {
+          writeMap.forEach(name => {
+            (copyMap.indexOf(file) >= 0) && callback(pathname, name)
+          })
+        } else {
+          (copyMap.indexOf(file) >= 0) && callback(pathname, file)
+        }
       } else {
         callback(pathname, file, 'file')
       }

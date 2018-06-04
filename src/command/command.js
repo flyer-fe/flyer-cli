@@ -3,6 +3,13 @@
  * 列表|表单|报表 模板指令实现逻辑
  * @author jianmin3
  * 
+ * 用户输入结构,例子
+ * 【flyer list 模块】  或者  【flyer list 模块 [file_name]】  再或者  【flyer list】
+ * 
+ * 支持3种输入方式：
+ * 第一种，[指令+模块]，会将生成的文件写入到默认的[src/pages/模块]路径下面，毕竟是表单这种文件只有模块下用得到
+ * 第二种，[指令+模块+文件名] 会将生成的文件写入到默认的[src/pages/模块]路径下面
+ * 第三种，[指令]会将生成的文件写入到当前的目录下面
  */
 const co = require('co')
 // const prompt = require('co-prompt')
@@ -31,24 +38,32 @@ module.exports = () => {
     // console.log(_arguments)
     // 校验创建模板时用户是否输入路径
     if (_customPath) {
-      // 验证用户输入文件夹是否有效
-      if (config.rex.PATH_REG.test(_customPath)) {
-        // 这一步不能拼接文件名称，因为需要验证文件在是否有效
-        targetPath = targetPath + '/src/pages' + utils.splitPath(_customPath)
-        // console.log(targetPath)
-        // 要找一下这个路径是否有效，如果无效，需要创建一个文件夹
-        if (!fs.existsSync(targetPath)) {
-          fs.mkdirSync(targetPath)
-          console.log(chalk.red('模块文件夹不存在，我给你创建了一个!'))
-        }
-        targetPath = targetPath + '/' + (_customCommand === 'form' ? 'create' : _customCommand) + '.vue'
+      // 这一步不能拼接文件名称，因为需要验证文件夹是否有效
+      targetPath = targetPath + '/src/pages/' + _customPath
+      // 要找一下这个路径是否有效，如果无效，需要创建一个文件夹
+      if (!fs.existsSync(targetPath)) {
+        fs.mkdirSync(targetPath)
+        console.log(chalk.red('文件夹不存在，我给你创建了一个!'))
+      }
+    }
+
+    // 文件名取决于用户输入的第三个参数，如果没有就是默认
+    let _fileName = ''
+    if (_customCommand === 'form') { // form模板的名字特殊处理
+      if (_customOptions) {
+        _fileName = _customOptions
       } else {
-        console.log(chalk.red('参数不符合解析规范，开头必须为contract|advertGroup|advert|idea/xxxx'))
-        return
+        _fileName = 'create'
       }
     } else {
-      targetPath = targetPath + '/' + _customCommand + '.vue'
+      if (_customOptions) {
+        _fileName = _customOptions
+      } else {
+        _fileName = _customCommand
+      }
     }
+    // targetPath = targetPath + '/' + (_customCommand === 'form' ? (_customOptions ? _customOptions : 'create') : (_customOptions ? _customOptions : _customCommand)) + '.vue'
+    targetPath = targetPath + '/' + _fileName + '.vue'
     utils.copy(targetPath, copyPath)
   })
 }
