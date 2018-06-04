@@ -61,7 +61,7 @@ program
 program
     .command('delete')
     .description('delete a templates')
-    .alias('l')
+    .alias('d')
     .action(() => {
         require('../src/command/delete')()
     })
@@ -79,7 +79,7 @@ program
 program
     .command('list')
     .description('List all the templates')
-    .alias('d')
+    .alias('l')
     .action(() => {
         require('../src/command/command')()
     })
