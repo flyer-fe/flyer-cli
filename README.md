@@ -101,7 +101,6 @@ flyer init <project_name>
 > * flyer-quickstart会根据你的喜好来预装```element-ui or quasar```UI框架，这样一来你可以更快速的构建你的spa应用，如果你不喜欢，也可以将其干点，但是你枉费了我的一片苦心；
 >
 
-
 [npm]: https://img.shields.io/npm/v/flyer-cli.svg
 [npm-url]: https://www.npmjs.com/package/flyer-cli
 
