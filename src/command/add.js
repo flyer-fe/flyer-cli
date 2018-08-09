@@ -28,16 +28,18 @@ module.exports = () => {
     // 需要拷贝的文件路劲
     let copyPath = path.resolve(__dirname, '..') + config.path[_customCommand]
     // console.log(_customOptions)
-    // let _userInput = utils.splitPath(_customPath)
+    // 用来验证路径
+    let _userInputPathList = utils.splitPath(_customPath)
+    let _userInputPath = utils.mergePath(_customPath)
     // 校验创建模板时用户是否输入路径
-    if (_customPath) {
-      // if (_userInput) {
-      //   targetPath = targetPath + _userInput + '/' + _customOptions
-      // } else {
-      //   targetPath = targetPath + '/src/pages' + _userInput
-      // }
+    if (_userInputPathList) {
+      if (_userInputPathList.length > 1) {
+        targetPath = targetPath + _userInputPath + '/' + _customOptions
+      } else {
+        targetPath = targetPath + '/src/pages' + _userInput
+      }
       // 这一步不能拼接文件名称，因为需要验证文件夹是否有效
-      targetPath = targetPath + (_customOptions ? '/src/pages' + utils.splitPath(_customPath) : '') 
+      // targetPath = targetPath + (_customOptions ? '/src/pages' + _userInputPath : '') 
       // 要找一下这个路径是否有效，如果无效，需要创建一个文件夹
       if (!fs.existsSync(targetPath)) {
         fs.mkdirSync(targetPath)

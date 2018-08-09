@@ -120,6 +120,16 @@ function splitPath(path) {
       paths.push('/' + pathName)
     }
   })
+  return paths
+}
+
+function mergePath () {
+  let paths = []
+  path.split('/').forEach(pathName => {
+    if (pathName) {
+      paths.push('/' + pathName)
+    }
+  })
   return paths.join('')
 }
 
@@ -128,5 +138,6 @@ module.exports = {
   createDir,
   readFile,
   splitPath,
+  mergePath,
   travelSync
 }
