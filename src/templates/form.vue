@@ -1,21 +1,20 @@
 <template>
   <div class="create-container">
     <!-- 面包屑 -->
-    <div class="form-title">
+    <div class="form-title">{{#if sina}}
       <x-breadcrumb separator=">" style="cursor: pointer;">
         <!-- 面包屑单项 -->
         <!-- <x-breadcrumb-item :to="{path: '/xxx/xxx/xxx'}">广告列表</x-breadcrumb-item> -->
-      </x-breadcrumb>
+      </x-breadcrumb>{{/if}}
     </div>
     <!-- 表单 -->
-    <x-form
+    <x-form{{#if sina}}
       :model="formData"
       :rules="rules"
       v-loading.fullscreen="loading"
       ref="formData"
       label-width="120px"
       class="advert-create">
-      <!--  -->
       <!-- <x-form-item label-width="20px" prop="schedule">
         <x-date-selector
           :valid="scheduleVaild"
@@ -23,23 +22,23 @@
           @select-complete="dateSelectorComplete">
         </x-date-selector>
       </x-form-item> -->
-    </x-form>
-
-    <div class="button-container">
+    </x-form>{{/if}}
+    <div class="button-container">{{#if sina}}
       <x-button type="primary" @click.native.prevent="submit()">提交xxx</x-button>
       <x-button type="primary" @click.native.prevent="submit('next')">提交并新建xxx</x-button>
-      <x-button @click.native.prevent="cancelHandler">取消</x-button>
+      <x-button @click.native.prevent="cancelHandler">取消</x-button>{{/if}}
     </div>
   </div>
 </template>
 
 <script>
   // baseComponents
+  {{#if sina}}
   import XBreadcrumb from 'components/breadcrumb'
   import XBreadcrumbItem from 'components/breadcrumb-item'
   import XFormItem from 'components/form-item'
   import XForm from 'components/form'
-  import XButton from 'components/button'
+  import XButton from 'components/button'{{/if}}
 
   // bizComponents
 
@@ -128,11 +127,12 @@
     },
 
     components: {
+      {{#if sina}}
       XBreadcrumb,
       XBreadcrumbItem,
       XFormItem,
       XForm,
-      XButton
+      XButton{{/if}}
     },
 
     data () {

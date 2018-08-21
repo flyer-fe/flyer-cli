@@ -8,6 +8,7 @@
 const fs = require('fs')
 const chalk = require('chalk')
 const path = require('path')
+const handlebars = require('handlebars')
 
 // 读写时的参数，可以设置为默认
 const readOption = {
@@ -28,17 +29,31 @@ const writeOption = {
  * @param {*} origin 处理的文件路劲集合
  * @param {*} aim 
  */
-function copy (targetPath, copyPath) {
+function copy (targetPath, copyPath, context) {
+  let _file = fs.readFileSync(copyPath, 'utf-8')
+  let _template = handlebars.compile(_file)
+  let _newFile = _template(context)
+  // console.log(_newFile)
+  fs.writeFile(targetPath, _newFile, (err) => {
+    if (err) {
+      console.log(chalk.red('读取文件失败！'))
+    } else {
+      console.log(chalk.green('文件拷贝完毕！'))
+    }
+  })
+  return
+  // 文件拷贝
   // fs.createReadStream(copyPath).pipe(fs.createWriteStream(targetPath))
   let _fileReadStream = fs.createReadStream(copyPath, readOption)
   let _fileWriteStream = fs.createWriteStream(targetPath, writeOption)
+  // console.log(_fileReadStream)
   _fileReadStream.pipe(_fileWriteStream)
   _fileReadStream.on('open', function () {
     // console.log("开始读取文件流！");
   })
   _fileReadStream.on('end', function () {
     // console.log(chalk.green('文件流读取完毕！'))
-    _fileWriteStream.end();
+    _fileWriteStream.end()
   })
   _fileReadStream.on('close', function () {
     console.log(chalk.green('文件拷贝完毕！'))

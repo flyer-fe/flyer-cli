@@ -1,19 +1,18 @@
 <template>
   <div class="list-container">
     <!-- 查询 -->
-    <div class="list-tabs">
+    <div class="list-tabs">{{#if sina}}
       <x-breadcrumb separator=">" style="cursor: pointer;">
         <!-- 填入列表页对应的面包屑 如下：-->
         <!-- <x-breadcrumb-item :to="{path: '路由地址'}">名称</x-breadcrumb-item> -->
       </x-breadcrumb>
-
       <x-button-group @click.native="tabClick">
         <!-- 填入相关模块入口, 主要是看你兴趣, 如下： -->
         <!-- <x-button name="contract" type="primary">合同</x-button> -->
-      </x-button-group>
+      </x-button-group>{{/if}}
 
       <!-- 查询项控件 -->
-      <div class="tags">
+      <div class="tags">{{#if sina}}
         <x-tag v-for="(query, index) in tags"
           :key="index"
           :closable="true"
@@ -23,11 +22,11 @@
               <span class="parent">{{ query.parentName }}：</span>
               <span>{{ query.name }}</span>
             </span>
-        </x-tag>
+        </x-tag>{{/if}}
       </div>
     </div>
 
-    <!-- 列表控件 -->
+    <!-- 列表控件 -->{{#if sina}}
     <x-table
       v-loading="loading"
       stripe
@@ -41,10 +40,10 @@
           min-width="110"
           inline-template>
         </x-table-column>
-    </x-table>
+    </x-table>{{/if}}
 
     <!-- 分页控件 -->
-    <div class="tableFooter">
+    <div class="tableFooter">{{#if sina}}
       <x-pagination
         @sizechange="handleSizeChange"
         @currentchange="handleCurrentChange"
@@ -53,13 +52,14 @@
         :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
-      </x-pagination>
+      </x-pagination>{{/if}}
     </div>
   </div>
 </template>
 
 <script>
   // baseComponents
+  {{#if sina}}
   import XButton from 'components/button'
   import XButtonGroup from 'components/button-group'
   import XBreadcrumb from 'components/breadcrumb'
@@ -67,7 +67,7 @@
   import XTable from 'components/table'
   import XTableColumn from 'components/table-column'
   import XPagination from 'components/pagination'
-  import XTag from 'components/tag'
+  import XTag from 'components/tag'{{/if}}
 
   // bizComponents
 
@@ -142,6 +142,7 @@
     },
 
     components: {
+      {{#if sina}}
       XButton,
       XButtonGroup,
       XBreadcrumb,
@@ -149,7 +150,7 @@
       XTable,
       XTableColumn,
       XPagination,
-      XTag
+      XTag{{/if}}
     },
 
     data () {

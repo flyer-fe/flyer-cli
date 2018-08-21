@@ -1,6 +1,6 @@
 {
   "name": "flyer-cli",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "商业端项目脚手架-飞鸟",
   "main": "bin/flyer",
   "bin": {
@@ -26,7 +26,10 @@
     "chalk": "^1.1.3",
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "download-git-repo": "^1.0.2",
+    "handlebars": "^4.0.11",
+    "ora": "^3.0.0"
   },
   "engines": {
     "node": ">= 4.0.0",

@@ -49,12 +49,19 @@ program
     })
 
 // 初始化模板
+// program
+//     .command('init')
+//     .description('Generate a new project')
+//     .alias('i')
+//     .action(() => {
+//         require('../src/command/init')()
+//     })
 program
     .command('init')
     .description('Generate a new project')
     .alias('i')
     .action(() => {
-        require('../src/command/init')()
+        require('../src/command/flyer-init')()
     })
 
 // 删除模板

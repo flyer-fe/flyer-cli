@@ -10,7 +10,9 @@
  * 第一种，[指令+模块]，会将生成的文件写入到默认的[src/pages/模块]路径下面，毕竟是表单这种文件只有模块下用得到
  * 第二种，[指令+模块+文件名] 会将生成的文件写入到默认的[src/pages/模块]路径下面
  * 第三种，[指令]会将生成的文件写入到当前的目录下面
+ * 第四种，[指令+模块+文件名+UI] 会将生成的文件写入到默认的[src/pages/模块]路径下面，利用handlebars根据UI类型生成对应的模板
  */
+
 const co = require('co')
 // const prompt = require('co-prompt')
 const chalk = require('chalk')
@@ -64,6 +66,8 @@ module.exports = () => {
     }
     // targetPath = targetPath + '/' + (_customCommand === 'form' ? (_customOptions ? _customOptions : 'create') : (_customOptions ? _customOptions : _customCommand)) + '.vue'
     targetPath = targetPath + '/' + _fileName + '.vue'
-    utils.copy(targetPath, copyPath)
+    utils.copy(targetPath, copyPath, {
+      element: true
+    })
   })
 }

@@ -11,8 +11,8 @@ const fs = require('fs')
 const path = require('path')
 const ora = require('ora')
 
-const utils = require('../utils/utils')
-const config = require('../utils/enum')
+// const utils = require('../utils/utils')
+// const config = require('../utils/enum')
 // 子进程
 const childProcess = require('child_process')
 // 从git拉去依赖库
